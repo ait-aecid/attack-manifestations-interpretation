@@ -1,0 +1,357 @@
+// Commands State Diagram
+digraph {
+	rankdir=TB
+	1 [label="1: key
+T1105: Ingress Tool Transfer
+T1204.002: User Execution: Malicious File
+{'command-and-control', 'execution'}
+macro_binary, macro_cron" shape=box style=rounded]
+	2 [label="2: key
+T1204.002: User Execution: Malicious File
+{'execution'}
+macro_binary, macro_cron" shape=box style=rounded]
+	3 [label="3: sysinfo
+T1082: System Information Discovery
+{'discovery'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	4 [label="4: upload_downloader_sh
+T1105: Ingress Tool Transfer
+{'command-and-control'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	5 [label="5: shell
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'execution'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	6 [label="6: python3__c__import_pty_pty_spawn___bash_____
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'execution'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	7 [label="7: export_SHELL_bash
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'execution'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	8 [label="8: export_TERM_xterm256_color
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'execution'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	9 [label="9: stty_rows_38_columns_116
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'execution'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	10 [label="10: export_DISPLAY__0
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'execution'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	11 [label="11: curl__o__home_judy__local_share_firefox_firefox_startup_dailynews_wire_com_8083_index
+T1105: Ingress Tool Transfer
+{'command-and-control'}
+macro_binary" shape=box style=rounded]
+	12 [label="12: ln__sf__home_judy__local_share_firefox_firefox_startup__home_judy__localfirefox
+T1574.008: Hijack Execution Flow: Path Interception by Search Order Hijacking
+T1546: Event Triggered Execution
+{'persistence', 'privilege-escalation', 'defense-evasion'}
+macro_binary" shape=box style=rounded]
+	13 [label="13: chmod__x__home_judy__local_share_firefox_firefox_startup
+T1222.002: File and Directory Permissions Modification: Linux and Mac File and Directory Permissions Modification
+{'defense-evasion'}
+macro_binary" shape=box style=rounded]
+	14 [label="14: curl__o__home_judy__localtask_runner_dailynews_wire_com_8082_index
+T1105: Ingress Tool Transfer
+{'command-and-control'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	15 [label="15: xclip__selection_clipboard__o
+T1115: Clipboard Data
+{'collection'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	16 [label="16: cp__tmp_index__home_judy__index
+T1564.001: Hide Artifacts: Hidden Files and Directories
+{'defense-evasion'}
+macro_binary, macro_cron" shape=box style=rounded]
+	17 [label="17: chmod__x__home_judy__localtask_runner
+T1222.002: File and Directory Permissions Modification: Linux and Mac File and Directory Permissions Modification
+{'defense-evasion'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	18 [label="18: chmod__x__home_judy_downloader_sh
+T1222.002: File and Directory Permissions Modification: Linux and Mac File and Directory Permissions Modification
+{'defense-evasion'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	19 [label="19: wmctrl__l
+T1010: Application Window Discovery
+{'discovery'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	20 [label="20: crontab__e
+T1053.003: Scheduled Task/Job: Cron
+{'persistence', 'privilege-escalation', 'execution'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	21 [label="21: __10__________home_judy_downloader_sh
+T1053.003: Scheduled Task/Job: Cron
+{'persistence', 'privilege-escalation', 'execution'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	22 [label="22: _wq__
+T1053.003: Scheduled Task/Job: Cron
+{'persistence', 'privilege-escalation', 'execution'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	23 [label="23: history__c
+T1070.003: Indicator Removal: Clear Command History
+{'defense-evasion'}
+macro_binary, macro_cron, screensharing_binary, screensharing_cron" shape=box style=rounded]
+	24 [label="24: __5_________bash__c__home_judy__index
+T1053.003: Scheduled Task/Job: Cron
+{'persistence', 'privilege-escalation', 'execution'}
+macro_cron, screensharing_cron" shape=box style=rounded]
+	25 [label="25: wget__O___home_judy_extension_xpi_dailynews_wire_com_8082_index
+T1176: Software Extensions
+T1056.001: Input Capture: Keylogging
+T1056.004: Input Capture: Credential API Hooking
+T1115: Clipboard Data
+{'collection', 'persistence', 'credential-access'}
+plugin" shape=box style=rounded]
+	26 [label="26: key
+T1176: Software Extensions
+T1056.001: Input Capture: Keylogging
+T1056.004: Input Capture: Credential API Hooking
+T1115: Clipboard Data
+{'collection', 'persistence', 'credential-access'}
+plugin" shape=box style=rounded]
+	27 [label="27: xdg_settings_set_default_web_browser_firefox_desktop____firefox_extension_xpi
+T1176: Software Extensions
+T1056.001: Input Capture: Keylogging
+T1056.004: Input Capture: Credential API Hooking
+T1115: Clipboard Data
+{'collection', 'persistence', 'credential-access'}
+plugin" shape=box style=rounded]
+	28 [label="28: move
+T1176: Software Extensions
+T1056.001: Input Capture: Keylogging
+T1056.004: Input Capture: Credential API Hooking
+T1115: Clipboard Data
+{'collection', 'persistence', 'credential-access'}
+plugin" shape=box style=rounded]
+	29 [label="29: click
+T1176: Software Extensions
+T1056.001: Input Capture: Keylogging
+T1056.004: Input Capture: Credential API Hooking
+T1115: Clipboard Data
+{'collection', 'persistence', 'credential-access'}
+plugin" shape=box style=rounded]
+	30 [label="30: move
+T1176: Software Extensions
+T1056.001: Input Capture: Keylogging
+T1056.004: Input Capture: Credential API Hooking
+T1115: Clipboard Data
+{'collection', 'persistence', 'credential-access'}
+plugin" shape=box style=rounded]
+	31 [label="31: 172_17_10
+T1056.001: Input Capture: Keylogging
+{'collection', 'credential-access'}
+plugin" shape=box style=rounded]
+	32 [label="32: 0_121_80_zm
+T1056.001: Input Capture: Keylogging
+{'collection', 'credential-access'}
+plugin" shape=box style=rounded]
+	33 [label="33: StarryEcho42BlazeTrix
+T1056.004: Input Capture: Credential API Hooking
+T1056.001: Input Capture: Keylogging
+{'collection', 'credential-access'}
+plugin" shape=box style=rounded]
+	34 [label="34: TwilightV3n0mR3alm9QzX
+T1056.004: Input Capture: Credential API Hooking
+T1056.001: Input Capture: Keylogging
+{'collection', 'credential-access'}
+plugin" shape=box style=rounded]
+	35 [label="35: key
+T1056.004: Input Capture: Credential API Hooking
+{'collection', 'credential-access'}
+plugin" shape=box style=rounded]
+	36 [label="36: move
+T1115: Clipboard Data
+{'collection'}
+plugin" shape=box style=rounded]
+	37 [label="37: click
+T1115: Clipboard Data
+{'collection'}
+plugin" shape=box style=rounded]
+	38 [label="38: sudo_wget__O_rustdesk_deb__e_use_proxy_yes__e_https_proxy_https___192_168_50_254_3128_https___github_com_rustdesk_rustdesk_releases_download_1_3_8_rustdesk_1_3_8_x86_64_deb
+T1204.001: User Execution: Malicious Link
+T1105: Ingress Tool Transfer
+T1566.004: Phishing: Spearphishing Voice
+{'command-and-control', 'initial-access', 'execution'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	39 [label="39: key
+T1204.001: User Execution: Malicious Link
+T1105: Ingress Tool Transfer
+T1566.004: Phishing: Spearphishing Voice
+{'command-and-control', 'initial-access', 'execution'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	40 [label="40: sudo_apt_install__fy___rustdesk_deb
+T1204.001: User Execution: Malicious Link
+T1219: Remote Access Tools
+{'command-and-control', 'execution'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	41 [label="41: key
+T1204.001: User Execution: Malicious Link
+T1219: Remote Access Tools
+{'command-and-control', 'execution'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	42 [label="42: sudo_rustdesk___password_password
+T1566.004: Phishing: Spearphishing Voice
+T1219: Remote Access Tools
+{'initial-access', 'command-and-control'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	43 [label="43: key
+T1566.004: Phishing: Spearphishing Voice
+T1219: Remote Access Tools
+{'initial-access', 'command-and-control'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	44 [label="44: rustdesk
+T1566.004: Phishing: Spearphishing Voice
+T1219: Remote Access Tools
+{'initial-access', 'command-and-control'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	45 [label="45: 192_42_1_174
+T1219: Remote Access Tools
+{'command-and-control'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	46 [label="46: click
+T1219: Remote Access Tools
+{'command-and-control'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	47 [label="47: move
+T1219: Remote Access Tools
+{'command-and-control'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	48 [label="48: curl__o__home_judy__index_facebock_com_8080_index
+T1105: Ingress Tool Transfer
+T1219: Remote Access Tools
+T1564.001: Hide Artifacts: Hidden Files and Directories
+{'command-and-control', 'defense-evasion'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	49 [label="49: key
+T1105: Ingress Tool Transfer
+T1219: Remote Access Tools
+T1564.001: Hide Artifacts: Hidden Files and Directories
+{'command-and-control', 'defense-evasion'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	50 [label="50: sudo_chmod__x__home_judy__index
+T1222.002: File and Directory Permissions Modification: Linux and Mac File and Directory Permissions Modification
+T1219: Remote Access Tools
+{'command-and-control', 'defense-evasion'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	51 [label="51: key
+T1222.002: File and Directory Permissions Modification: Linux and Mac File and Directory Permissions Modification
+T1219: Remote Access Tools
+{'command-and-control', 'defense-evasion'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	52 [label="52: curl__o__home_judy__local_share_firefox_firefox_startup_192_42_1_174_8083_index
+T1105: Ingress Tool Transfer
+T1219: Remote Access Tools
+{'command-and-control'}
+screensharing_binary" shape=box style=rounded]
+	53 [label="53: key
+T1105: Ingress Tool Transfer
+T1219: Remote Access Tools
+{'command-and-control'}
+screensharing_binary" shape=box style=rounded]
+	54 [label="54: chmod__x__home_judy__local_share_firefox_firefox_startup
+T1222.002: File and Directory Permissions Modification: Linux and Mac File and Directory Permissions Modification
+T1219: Remote Access Tools
+{'command-and-control', 'defense-evasion'}
+screensharing_binary" shape=box style=rounded]
+	55 [label="55: ln__sf__home_judy__local_share_firefox_firefox_startup__home
+T1574.008: Hijack Execution Flow: Path Interception by Search Order Hijacking
+T1219: Remote Access Tools
+{'command-and-control', 'persistence', 'privilege-escalation', 'defense-evasion'}
+screensharing_binary" shape=box style=rounded]
+	56 [label="56: _judy__local_bin_firefox
+T1574.008: Hijack Execution Flow: Path Interception by Search Order Hijacking
+T1219: Remote Access Tools
+{'command-and-control', 'persistence', 'privilege-escalation', 'defense-evasion'}
+screensharing_binary" shape=box style=rounded]
+	57 [label="57: key
+T1574.008: Hijack Execution Flow: Path Interception by Search Order Hijacking
+T1219: Remote Access Tools
+{'command-and-control', 'persistence', 'privilege-escalation', 'defense-evasion'}
+screensharing_binary" shape=box style=rounded]
+	58 [label="58: firefox
+T1059.004: Command and Scripting Interpreter: Unix Shell
+T1219: Remote Access Tools
+{'command-and-control', 'execution'}
+screensharing_binary" shape=box style=rounded]
+	59 [label="59: key
+T1219: Remote Access Tools
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'command-and-control', 'execution'}
+screensharing_binary, screensharing_cron" shape=box style=rounded]
+	60 [label="60: _home_judy__index__
+T1219: Remote Access Tools
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'command-and-control', 'execution'}
+screensharing_cron" shape=box style=rounded]
+	48 -> 49
+	11 -> 12
+	5 -> 6
+	21 -> 24
+	46 -> 48
+	57 -> 58
+	1 -> 2
+	38 -> 39
+	51 -> 55
+	42 -> 43
+	33 -> 34
+	30 -> 29
+	29 -> 31
+	21 -> 22
+	26 -> 27
+	20 -> 21
+	36 -> 37
+	55 -> 56
+	56 -> 57
+	50 -> 51
+	51 -> 52
+	40 -> 41
+	41 -> 42
+	45 -> 46
+	27 -> 26
+	31 -> 32
+	2 -> 3
+	13 -> 14
+	9 -> 10
+	8 -> 9
+	51 -> 60
+	26 -> 28
+	39 -> 40
+	44 -> 43
+	15 -> 17
+	17 -> 18
+	10 -> 11
+	3 -> 4
+	49 -> 50
+	52 -> 53
+	60 -> 59
+	12 -> 13
+	25 -> 26
+	7 -> 8
+	59 -> 3
+	29 -> 30
+	4 -> 5
+	58 -> 59
+	46 -> 47
+	53 -> 54
+	34 -> 35
+	16 -> 17
+	32 -> 33
+	47 -> 46
+	43 -> 45
+	22 -> 23
+	19 -> 20
+	6 -> 7
+	28 -> 29
+	43 -> 44
+	54 -> 51
+	15 -> 16
+	10 -> 14
+	14 -> 15
+	24 -> 22
+	18 -> 19
+	35 -> 36
+}

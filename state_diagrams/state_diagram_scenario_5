@@ -1,0 +1,20 @@
+// Commands State Diagram
+digraph {
+	rankdir=TB
+	1 [label="1: bettercap__caplet__home_aecid_bettercap_cap
+T1040: Network Sniffing
+T1557.002: Adversary-in-the-Middle: ARP Cache Poisoning
+{'collection', 'credential-access', 'discovery'}
+" shape=box style=rounded]
+	2 [label="2: _usr_local_share_attackmate_venvpython3__home_aecid_get_auth_py
+T1040: Network Sniffing
+T1528: Steal Application Access Token
+{'credential-access', 'discovery'}
+" shape=box style=rounded]
+	3 [label="3: GET
+T1550.001: Use Alternate Authentication Material: Application Access Token
+{'defense-evasion', 'lateral-movement'}
+" shape=box style=rounded]
+	1 -> 2
+	2 -> 3
+}

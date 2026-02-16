@@ -1,0 +1,118 @@
+// Commands State Diagram
+digraph {
+	rankdir=TB
+	1 [label="1: generate_implant
+T1071.001: Application Layer Protocol: Web Protocols
+{'command-and-control'}
+" shape=box style=rounded]
+	2 [label="2: start_https_listener
+T1071.001: Application Layer Protocol: Web Protocols
+{'command-and-control'}
+" shape=box style=rounded]
+	3 [label="3: sshpass__p__rambo__scp__o_StrictHostKeyChecking_no__o_ProxyCommand__sshpass__p__rambo__ssh__o_StrictHostKeyChecking_no__p_10022_john_fw_attackbed_com_nc_firewall_attackbed_local_22___home_aecid_auditf_tar_gz_john_firewall_attackbed_local__tmp_auditf_tar_gz
+T1078.003: Valid Accounts: Local Accounts
+T1105: Ingress Tool Transfer
+T1205.001: Traffic Signaling: Port Knocking
+{'initial-access', 'persistence', 'privilege-escalation', 'command-and-control', 'defense-evasion'}
+" shape=box style=rounded]
+	4 [label="4: id
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+" shape=box style=rounded]
+	5 [label="5: ssh__o_StrictHostKeyChecking_no__o_PreferredAuthentications_password_john_firewall_attackbed_local_
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+" shape=box style=rounded]
+	6 [label="6: rambo_
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+" shape=box style=rounded]
+	7 [label="7: _i_
+T1548.003: Abuse Elevation Control Mechanism: Sudo and Sudo Caching
+{'defense-evasion', 'privilege-escalation'}
+" shape=box style=rounded]
+	8 [label="8: rambo_
+T1548.003: Abuse Elevation Control Mechanism: Sudo and Sudo Caching
+{'defense-evasion', 'privilege-escalation'}
+" shape=box style=rounded]
+	9 [label="9: tar__xzf__tmp_auditf_tar_gz__C__usr_bin_
+T1036.005: Masquerading: Match Legitimate Resource Name or Location
+T1205.001: Traffic Signaling: Port Knocking
+{'command-and-control', 'defense-evasion', 'persistence'}
+" shape=box style=rounded]
+	10 [label="10: rm
+T1070.004: Indicator Removal: File Deletion
+{'defense-evasion'}
+" shape=box style=rounded]
+	11 [label="11: _Unit__Description_Run_auditf_on_boot___Service__ExecStart_auditf_WorkingDirectory__usr_bin_Restart_on_failure_Type_simple___Install__WantedBy_multi_user_target_
+T1543.002: Create or Modify System Process: Systemd Service
+{'persistence', 'privilege-escalation'}
+" shape=box style=rounded]
+	12 [label="12: _wq__
+T1543.002: Create or Modify System Process: Systemd Service
+{'persistence', 'privilege-escalation'}
+" shape=box style=rounded]
+	13 [label="13: systemctl_daemon_reload_
+T1543.002: Create or Modify System Process: Systemd Service
+{'persistence', 'privilege-escalation'}
+" shape=box style=rounded]
+	14 [label="14: systemctl_enable_auditf_service_
+T1543.002: Create or Modify System Process: Systemd Service
+{'persistence', 'privilege-escalation'}
+" shape=box style=rounded]
+	15 [label="15: systemctl_start_auditf_service_
+T1543.002: Create or Modify System Process: Systemd Service
+{'persistence', 'privilege-escalation'}
+" shape=box style=rounded]
+	16 [label="16: _home_aecid_knock_cli__c_knock_yaml__r_knock_firewall
+T1205.001: Traffic Signaling: Port Knocking
+T1071.001: Application Layer Protocol: Web Protocols
+T1036.005: Masquerading: Match Legitimate Resource Name or Location
+{'command-and-control', 'defense-evasion', 'persistence'}
+" shape=box style=rounded]
+	17 [label="17: execute
+T1599: Network Boundary Bridging
+{'defense-evasion'}
+" shape=box style=rounded]
+	18 [label="18: execute
+T1599: Network Boundary Bridging
+{'defense-evasion'}
+" shape=box style=rounded]
+	19 [label="19: id
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+" shape=box style=rounded]
+	20 [label="20: ssh__o_StrictHostKeyChecking_no__o_PreferredAuthentications_password_john_linuxshare_attackbed_local_
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+" shape=box style=rounded]
+	21 [label="21: rambo_
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+" shape=box style=rounded]
+	22 [label="22: hostname_
+T1082: System Information Discovery
+{'discovery'}
+" shape=box style=rounded]
+	11 -> 12
+	5 -> 6
+	1 -> 2
+	21 -> 22
+	20 -> 21
+	2 -> 3
+	13 -> 14
+	9 -> 10
+	8 -> 9
+	17 -> 18
+	10 -> 11
+	3 -> 4
+	12 -> 13
+	7 -> 8
+	4 -> 5
+	16 -> 17
+	19 -> 20
+	6 -> 7
+	15 -> 16
+	14 -> 15
+	18 -> 19
+}

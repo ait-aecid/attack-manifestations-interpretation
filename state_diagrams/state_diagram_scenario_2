@@ -1,0 +1,160 @@
+// Commands State Diagram
+digraph {
+	rankdir=TB
+	1 [label="1: hostname
+T1021.004: Remote Services: SSH
+{'lateral-movement'}
+cron" shape=box style=rounded]
+	2 [label="2: start_https_listener
+T1071.001: Application Layer Protocol: Web Protocols
+T1573.001: Encrypted Channel: Symmetric Cryptography
+{'command-and-control'}
+cron" shape=box style=rounded]
+	3 [label="3: put
+T1105: Ingress Tool Transfer
+{'command-and-control'}
+cron, rootkit" shape=box style=rounded]
+	4 [label="4: sed__i__s_____bin__sh_____bin__sh_n__usr__bin__zmcontroller____n____usr_share_awffull_awffull
+T1547: Boot or Logon Autostart Execution
+T1569: System Services
+{'persistence', 'privilege-escalation', 'execution'}
+cron" shape=box style=rounded]
+	5 [label="5: ls
+T1083: File and Directory Discovery
+{'discovery'}
+cron, rootkit" shape=box style=rounded]
+	6 [label="6: ps
+T1057: Process Discovery
+{'discovery'}
+cron, rootkit" shape=box style=rounded]
+	7 [label="7: __d_____mariadb
+T1007: System Service Discovery
+{'discovery'}
+cron, rootkit" shape=box style=rounded]
+	8 [label="8: process_dump
+T1003: OS Credential Dumping
+{'credential-access'}
+cron, rootkit" shape=box style=rounded]
+	9 [label="9: netstat
+T1049: System Network Connections Discovery
+{'discovery'}
+cron, rootkit" shape=box style=rounded]
+	10 [label="10: ifconfig
+T1016: System Network Configuration Discovery
+{'discovery'}
+cron, rootkit" shape=box style=rounded]
+	11 [label="11: download
+T1003.008: OS Credential Dumping: /etc/passwd and /etc/shadow
+T1041: Exfiltration Over C2 Channel
+{'credential-access', 'exfiltration'}
+cron, rootkit" shape=box style=rounded]
+	12 [label="12: execute
+T1560.001: Archive Collected Data: Archive via Utility
+T1074.001: Data Staged: Local Data Staging
+{'collection'}
+cron, rootkit" shape=box style=rounded]
+	13 [label="13: download
+T1041: Exfiltration Over C2 Channel
+{'exfiltration'}
+cron, rootkit" shape=box style=rounded]
+	14 [label="14: rm
+T1070.004: Indicator Removal: File Deletion
+{'defense-evasion'}
+cron, rootkit" shape=box style=rounded]
+	15 [label="15: download
+T1005: Data from Local System
+{'collection'}
+cron, rootkit" shape=box style=rounded]
+	16 [label="16: execute
+T1201: Password Policy Discovery
+{'discovery'}
+cron, rootkit" shape=box style=rounded]
+	17 [label="17: execute
+T1003.008: OS Credential Dumping: /etc/passwd and /etc/shadow
+{'credential-access'}
+cron, rootkit" shape=box style=rounded]
+	18 [label="18: execute
+T1201: Password Policy Discovery
+{'discovery'}
+cron, rootkit" shape=box style=rounded]
+	19 [label="19: upload
+T1105: Ingress Tool Transfer
+T1046: Network Service Discovery
+T1018: Remote System Discovery
+{'command-and-control', 'discovery'}
+cron, rootkit" shape=box style=rounded]
+	20 [label="20: execute
+T1046: Network Service Discovery
+T1018: Remote System Discovery
+{'discovery'}
+cron, rootkit" shape=box style=rounded]
+	21 [label="21: execute
+T1046: Network Service Discovery
+T1018: Remote System Discovery
+{'discovery'}
+cron, rootkit" shape=box style=rounded]
+	22 [label="22: id
+T1021: Remote Services
+{'lateral-movement'}
+rootkit" shape=box style=rounded]
+	23 [label="23: put
+T1105: Ingress Tool Transfer
+{'command-and-control'}
+rootkit" shape=box style=rounded]
+	24 [label="24: start_https_listener
+T1071.001: Application Layer Protocol: Web Protocols
+T1573: Encrypted Channel
+{'command-and-control'}
+rootkit" shape=box style=rounded]
+	25 [label="25: ExecStartPre_sudo__g_fax_bash__c__zmcontroller__
+T1543.002: Create or Modify System Process: Systemd Service
+{'persistence', 'privilege-escalation'}
+rootkit" shape=box style=rounded]
+	26 [label="26: _wq__
+T1543.002: Create or Modify System Process: Systemd Service
+{'persistence', 'privilege-escalation'}
+rootkit" shape=box style=rounded]
+	27 [label="27: echo__usr_lib_selinux_so_3_____etc_ld_so_preload
+T1014: Rootkit
+T1564: Hide Artifacts
+T1574: Hijack Execution Flow
+{'defense-evasion', 'persistence', 'privilege-escalation'}
+rootkit" shape=box style=rounded]
+	28 [label="28: systemctl_daemon_reload
+T1543.002: Create or Modify System Process: Systemd Service
+{'persistence', 'privilege-escalation'}
+rootkit" shape=box style=rounded]
+	29 [label="29: systemctl_restart_zoneminder_service
+T1543.002: Create or Modify System Process: Systemd Service
+{'persistence', 'privilege-escalation'}
+rootkit" shape=box style=rounded]
+	11 -> 12
+	5 -> 6
+	3 -> 25
+	1 -> 2
+	26 -> 27
+	20 -> 21
+	2 -> 3
+	13 -> 14
+	9 -> 10
+	8 -> 9
+	17 -> 18
+	10 -> 11
+	3 -> 4
+	24 -> 3
+	27 -> 28
+	12 -> 13
+	25 -> 26
+	7 -> 8
+	29 -> 5
+	4 -> 5
+	16 -> 17
+	23 -> 24
+	22 -> 23
+	19 -> 20
+	6 -> 7
+	28 -> 29
+	15 -> 16
+	14 -> 15
+	18 -> 19
+}

