@@ -10,7 +10,7 @@ If you use data or scripts from this repository, please cite the following publi
 We provide a data set of filtered attack manifestations online. Download and unzip it with the following commands:
 
 ```
-wget https://zenodo.org/records/18390561/manifestations_filtered.zip
+wget https://zenodo.org/records/18390561/files/manifestations_filtered.zip
 unzip manifestations_filtered.zip
 ```
 
