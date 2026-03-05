@@ -3,7 +3,7 @@
 This repository contains scripts to process and analyze the [Cyber Attack Manifestations - Log Data Set (CAM-LDS)](https://zenodo.org/records/18390561) using LLMs.
 
 If you use data or scripts from this repository, please cite the following publication:
-* M. Landauer, W. Hotwagner, T. Boenke, F. Skopik, M. Wurzenberger. CAM-LDS: Cyber Attack Manifestations for Automatic Interpretation of System Logs and Security Alerts. Under Review.
+* M. Landauer, W. Hotwagner, T. Boenke, F. Skopik, M. Wurzenberger. CAM-LDS: Cyber Attack Manifestations for Automatic Interpretation of System Logs and Security Alerts. \[[PDF](https://arxiv.org/pdf/2603.04186)\]
 
 ## Getting the data
 
@@ -97,4 +97,4 @@ python3 extract_attack_logs.py
 # Citation
 
 If you use data or scripts from this repository, please cite the following publication:
-* M. Landauer, W. Hotwagner, T. Boenke, F. Skopik, M. Wurzenberger. CAM-LDS: Cyber Attack Manifestations for Automatic Interpretation of System Logs and Security Alerts. Under Review.
+* M. Landauer, W. Hotwagner, T. Boenke, F. Skopik, M. Wurzenberger. CAM-LDS: Cyber Attack Manifestations for Automatic Interpretation of System Logs and Security Alerts. \[[PDF](https://arxiv.org/pdf/2603.04186)\]
