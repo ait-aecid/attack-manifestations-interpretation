@@ -59,7 +59,7 @@ videoserver:
 
 ## Retrieving responses from an LLM
 
-To query the LLM with the prompts generated in the previous section, use the following script. Note that you need to set your `OPENAI_API_KEY` before running this scipt.
+To query the LLM with the prompts generated in the previous section, use the following script. Note that you need to set your `OPENROUTER_API_KEY` before running this scipt.
 
 ```
 python3 get_llm_responses.py
@@ -75,7 +75,37 @@ Responses from the LLM include the predicted attack techniques for the log data,
 "explanation": "Web access to ZoneMinder (/zm/index.php) is followed by auditd showing apache2 (www-data) spawning /bin/sh with a \"sh -c\" command, which is a strong indicator of command execution via a web application (likely exploitation). The proximity of the remote client IP to the PHP warning and the shell exec makes this more consistent with attacker-driven activity than normal web usage."
 ```
 
-By comparing the predicted techniques with the ground truth labels, the classification accuracy can be estimated.
+## Computing classification accuracy
+
+By comparing the predicted techniques with the ground truth labels, the classification accuracy can be estimated. The following script computes several metrics for accuracy and stability. For the provided repsonses from five LLMs, the following metrics are obtained.
+
+```
+python3 get_statistics.py
+
+Extracted records: 4943
+Candidate technique universe size: 216
+
+Metrics by model_id
+===================
+model_id                                      | n_records | top1_accuracy | top5_accuracy | top10_accuracy | mrr      | weighted_mrr_by_num_gt | precision_at_1 | recall_at_1 | precision_at_5 | recall_at_5 | precision_at_10 | recall_at_10
+----------------------------------------------+-----------+---------------+---------------+----------------+----------+------------------------+----------------+-------------+----------------+-------------+-----------------+-------------
+meta-llama/llama-4-maverick-17b-128e-instruct | 990       | 0.256566      | 0.386869      | 0.446465       | 0.312486 | 0.324001               | 0.256566       | 0.204545    | 0.082020       | 0.320603    | 0.050101        | 0.374165
+mistralai/ministral-3b-2512                   | 983       | 0.100712      | 0.160732      | 0.166836       | 0.123780 | 0.127580               | 0.100712       | 0.080875    | 0.032350       | 0.133944    | 0.016785        | 0.139369
+openai/gpt-5.2-20251211                       | 990       | 0.404040      | 0.601010      | 0.650505       | 0.486855 | 0.502444               | 0.404040       | 0.322727    | 0.132727       | 0.514595    | 0.075051        | 0.570992
+openai/gpt-5.5-20260423                       | 990       | 0.418182      | 0.608081      | 0.671717       | 0.503596 | 0.546148               | 0.418182       | 0.330199    | 0.133737       | 0.518467    | 0.078182        | 0.585237
+qwen/qwen3-32b-04-28                          | 990       | 0.160606      | 0.254545      | 0.309091       | 0.199830 | 0.206520               | 0.160606       | 0.133333    | 0.052121       | 0.206728    | 0.031818        | 0.250317
+__random_baseline__                           | 4943      | 0.006677      | 0.032926      | 0.064964       | 0.019254 | 0.028697               | 0.006677       | 0.004634    | 0.006659       | 0.023170    | 0.006654        | 0.046325
+
+Inter-run stability
+===================
+model_id                                      | n_repeated_steps | percent_steps_all_runs_same_top1 | average_pairwise_top1_agreement | fleiss_kappa_top1 | average_stdev_first_correct_rank_penalty
+----------------------------------------------+------------------+----------------------------------+---------------------------------+-------------------+-----------------------------------------
+meta-llama/llama-4-maverick-17b-128e-instruct | 198              | 0.681818                         | 0.829293                        | 0.805499          | 0.319110
+mistralai/ministral-3b-2512                   | 198              | 0.363636                         | 0.589899                        | 0.367866          | 0.207533
+openai/gpt-5.2-20251211                       | 198              | 0.555556                         | 0.750000                        | 0.735404          | 0.456134
+openai/gpt-5.5-20260423                       | 198              | 0.590909                         | 0.745960                        | 0.734673          | 0.503411
+qwen/qwen3-32b-04-28                          | 198              | 0.141414                         | 0.387879                        | 0.333481          | 0.819178
+```
 
 ## Reproducing the data set: Extraction of attack manifestations (optional)
 
