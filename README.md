@@ -53,7 +53,7 @@ videoserver:
     192.42.1.174 - - [24/Sep/2025:07:51:33 +0000] "GET /zm/index.php HTTP/1.1" 200 8978 "-" "Mozilla/5.0"
     192.42.1.174 - - [24/Sep/2025:07:51:33 +0000] "POST /zm/index.php HTTP/1.1" 302 756 "-" "Mozilla/5.0"
   logs/log/audit/audit.log:
-    type=SYSCALL msg=audit(1758700293.784:4701): arch=c000003e syscall=59 success=yes exit=0 a0=7fe4cb2e7152 a1=7ffc1def0bd0 a2=7ffc1def3878 a3=8 items=3 ppid=2948 pid=2977 auid=4294967295 uid=33 gid=33 euid=33 suid=33 fsuid=33 egid=33 sgid=33 fsgid=33 tty=(none) ses=4294967295 comm="sh" exe="/usr/bin/dash" subj==unconfined key="T1166_Seuid_and_Setgid" ARCH=x86_64 SYSCALL=execve AUID="unset" UID="www-data" GID="www-data" EUID="www-data" SUID="www-data" FSUID="www-data" EGID="www-data" SGID="www-data" FSGID="www-data"
+    type=SYSCALL msg=audit(1758700293.784:4701): arch=c000003e syscall=59 success=yes exit=0 a0=7fe4cb2e7152 a1=7ffc1def0bd0 a2=7ffc1def3878 a3=8 items=3 ppid=2948 pid=2977 auid=4294967295 uid=33 gid=33 euid=33 suid=33 fsuid=33 egid=33 sgid=33 fsgid=33 tty=(none) ses=4294967295 comm="sh" exe="/usr/bin/dash" subj==unconfined ARCH=x86_64 SYSCALL=execve AUID="unset" UID="www-data" GID="www-data" EUID="www-data" SUID="www-data" FSUID="www-data" EGID="www-data" SGID="www-data" FSGID="www-data"
     type=EXECVE msg=audit(1758700293.784:4701): argc=3 a0="sh" a1="-c" a2=2F7573722F62696E2F7A6D75202D4120202D61202D6D20303B736C6565702036
 ```
 
