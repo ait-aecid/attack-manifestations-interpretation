@@ -1,9 +1,9 @@
 # LLM-based interpretation of cyber attack manifestations
 
-This repository contains scripts to process and analyze the [Cyber Attack Manifestations - Log Data Set (CAM-LDS)](https://zenodo.org/records/18390561) using LLMs.
+This repository contains scripts to process and analyze the [Cyber Attack Manifestations - Log Data Set (CAM-LDS)](https://zenodo.org/records/18390560) using LLMs.
 
 If you use data or scripts from this repository, please cite the following publication:
-* M. Landauer, W. Hotwagner, T. Boenke, F. Skopik, M. Wurzenberger. CAM-LDS: Cyber Attack Manifestations for Automatic Interpretation of System Logs and Security Alerts. \[[PDF](https://arxiv.org/pdf/2603.04186)\]
+* M. Landauer, W. Hotwagner, T. Boenke, F. Skopik, M. Wurzenberger. 2026. [CAM-LDS: Cyber Attack Manifestations for Automatic Interpretation of System Logs and Security Alerts](https://doi.org/10.1007/s10207-026-01318-x). International Journal of Information Security, 25(5). \[[PDF]([https://arxiv.org/pdf/2603.04186](https://link.springer.com/content/pdf/10.1007/s10207-026-01318-x.pdf))\]
 
 ## Getting the data
 
@@ -127,4 +127,4 @@ python3 extract_attack_logs.py
 # Citation
 
 If you use data or scripts from this repository, please cite the following publication:
-* M. Landauer, W. Hotwagner, T. Boenke, F. Skopik, M. Wurzenberger. CAM-LDS: Cyber Attack Manifestations for Automatic Interpretation of System Logs and Security Alerts. \[[PDF](https://arxiv.org/pdf/2603.04186)\]
+* M. Landauer, W. Hotwagner, T. Boenke, F. Skopik, M. Wurzenberger. 2026. [CAM-LDS: Cyber Attack Manifestations for Automatic Interpretation of System Logs and Security Alerts](https://doi.org/10.1007/s10207-026-01318-x). International Journal of Information Security, 25(5). \[[PDF]([https://arxiv.org/pdf/2603.04186](https://link.springer.com/content/pdf/10.1007/s10207-026-01318-x.pdf))\]
