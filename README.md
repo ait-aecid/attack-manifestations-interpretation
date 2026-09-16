@@ -10,7 +10,7 @@ If you use data or scripts from this repository, please cite the following publi
 We provide a data set of filtered attack manifestations online. Download and unzip it with the following commands:
 
 ```
-wget https://zenodo.org/records/18390561/files/manifestations_filtered.zip
+wget https://zenodo.org/records/18861762/files/manifestations_filtered.zip
 unzip manifestations_filtered.zip
 ```
 
@@ -111,7 +111,7 @@ qwen/qwen3-32b-04-28                          | 198              | 0.141414     
 
 The filtered attack manifestations are based on log data collected from multiple simulation runs. We recommend to just use the filtered manifestations as described in the previous sections; however, we also provide the script used to generate these manifestations.
 
-First, you need to download the logs collected from all simulation runs from our [Zenodo page](https://zenodo.org/records/18390561) and store them in a directory called `data/scenario<id>` within this respository (you need to create these folders). For example, for the simulations in Scenario 2, the following files should exist:
+First, you need to download the logs collected from all simulation runs from our [Zenodo page](https://zenodo.org/records/18390560) and store them in a directory called `data/scenario<id>` within this respository (you need to create these folders). For example, for the simulations in Scenario 2, the following files should exist:
 
 ```
 data/scenario2/scenario_2_cron
